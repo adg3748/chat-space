@@ -1,30 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Design Tables
 
-Things you may want to cover:
+comments:チャット内容保存
+groups:チャットグループ保存
+groups_users:groupsとusersの中間テーブル
+users:ユーザー情報の保存
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-## table_comments
+## commentsテーブル
 
 | Attribute  | Type |
 |:-----------:|:------------:|
 |id|integer|
-|contents|string|
+|content|string|
 |created_at|datetime|
 |updated_at|datetime|
 |user_id|integer|
 |group_id|integer|
 
-## table_groups
+## groupsテーブル
 
 | Attribute  | Type |
 |:-----------:|:------------:|
@@ -33,15 +27,15 @@ Things you may want to cover:
 |created_at|datetime|
 |updated_at|datetime|
 
-## table_relation
+## groups_usersテーブル
 
 | Attribute  | Type |
 |:-----------:|:------------:|
 |id|integer|
-|user_id|integer|
-|group_id|integer|
+|user_id|references|
+|group_id|references|
 
-## table_users
+## usersテーブル
 
 | Attribute  | Type |
 |:-----------:|:------------:|
@@ -59,17 +53,3 @@ Things you may want to cover:
 |created_at|datetime|
 |updated_at|datetime|
 |nickname|string|
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
