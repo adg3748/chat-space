@@ -1,15 +1,15 @@
 == README
 
-#Design Tables
+# Design Tables
 
-##Associations
+## Associations
 
-#comments belongs_to :groups
-#comments belongs_to :users
-#groups has_many :comments
-#users has_many :comments
-#groups has_many users, through :groups_users
-#users has_many groups, through :groups_users
+# comments belongs_to :groups
+# comments belongs_to :users
+# groups has_many :comments
+# users has_many :comments
+# groups has_many users, through :groups_users
+# users has_many groups, through :groups_users
 
 ## commentsテーブル
 
