@@ -1,28 +1,59 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Design Tables
 
-Things you may want to cover:
+## Associations
 
-* Ruby version
+messages belongs_to :group
+messages belongs_to :user
+groups has_many :messages
+users has_many :messages
+groups has_many users, through :groups_users
+users has_many groups, through :groups_users
 
-* System dependencies
+## messagesテーブル
 
-* Configuration
+| Attribute  | Type |
+|:-----------:|:------------:|
+|id|integer|
+|content|string|
+|created_at|datetime|
+|updated_at|datetime|
+|user_id|references|
+|group_id|references|
 
-* Database creation
+## groupsテーブル
 
-* Database initialization
+| Attribute  | Type |
+|:-----------:|:------------:|
+|id|integer|
+|name|string|
+|created_at|datetime|
+|updated_at|datetime|
 
-* How to run the test suite
+## groups_usersテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Attribute  | Type |
+|:-----------:|:------------:|
+|id|integer|
+|user_id|references|
+|group_id|references|
 
-* Deployment instructions
+## usersテーブル
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+| Attribute  | Type |
+|:-----------:|:------------:|
+|id|integer|
+|email|string|
+|encrypted_password|string|
+|reset_password_token|string|
+|reset_password_sent_at|datetime|
+|remenber_created_at|datetime|
+|sign_in_count|integer|
+|current_sign_in_at|datetime|
+|last_sign_in_at|datetime|
+|current_sign_in_ip|string|
+|last_sign_in_ip|string|
+|created_at|datetime|
+|updated_at|datetime|
+|nickname|string|
