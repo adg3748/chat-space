@@ -2,10 +2,14 @@
 
 #Design Tables
 
-comments:チャット内容保存
-groups:チャットグループ保存
-groups_users:groupsとusersの中間テーブル
-users:ユーザー情報の保存
+##Associations
+
+#comments belongs_to :groups
+#comments belongs_to :users
+#groups has_many :comments
+#users has_many :comments
+#groups has_many users, through :groups_users
+#users has_many groups, through :groups_users
 
 ## commentsテーブル
 
@@ -15,8 +19,8 @@ users:ユーザー情報の保存
 |content|string|
 |created_at|datetime|
 |updated_at|datetime|
-|user_id|integer|
-|group_id|integer|
+|user_id|references|
+|group_id|references|
 
 ## groupsテーブル
 
