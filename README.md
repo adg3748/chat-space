@@ -4,14 +4,14 @@
 
 ## Associations
 
-comments belongs_to :groups
-comments belongs_to :users
-groups has_many :comments
-users has_many :comments
+messages belongs_to :group
+messages belongs_to :user
+groups has_many :messages
+users has_many :messages
 groups has_many users, through :groups_users
 users has_many groups, through :groups_users
 
-## commentsテーブル
+## messagesテーブル
 
 | Attribute  | Type |
 |:-----------:|:------------:|
