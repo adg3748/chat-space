@@ -1,0 +1,81 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html", charset: "UTF-8", http: {equiv: "Content-Type"}}
+    %title ChatSpace | ChatDesplay
+    = csrf_meta_tags
+  %body
+    %div.initialized
+      %p
+        チャットグループが作成されました。
+    %div.chat
+      %div.chat-side
+        %div.chat-user
+          %h5
+            %span
+              name
+          %span
+            %a{href: ""}
+              %i{class: "fa fa-pencil-square-o", aria: {hidden: "true"}}
+            %a{href: ""}
+              %i{class: "fa fa-cog", aria: {hidden: "true"}}
+        %div.chat-group
+          %a{href: ""}
+            %div.group-name-side group-name
+            %div.message message
+      %div.chat-main
+        %div.chat-header
+          %div.group-user
+            %h4
+              %span.group-name-main
+                sampleグループ
+            %p
+              %span.members
+                Members: noname
+          %div.edit
+            %p
+              %a{href: ""}
+                Edit
+        %div.chat-body
+          %ul
+            %li
+              %div.user-message
+                %p.user-name
+                  noname
+                %p.datetime
+                  20XX/XX/XX
+              %p.message-body
+                no message
+            %li
+              %div.user-message
+                %p.user-name
+                  noname
+                %p.datetime
+                  20XX/XX/XX
+              %p.message-body
+                no message
+            %li
+              %div.user-message
+                %p.user-name
+                  noname
+                %p.datetime
+                  20XX/XX/XX
+              %p.message-body
+                no message
+            %li
+              %div.user-message
+                %p.user-name
+                  noname
+                %p.datetime
+                  20XX/XX/XX
+              %p.message-body
+                no message
+        %div.chat-footer
+          %div.send-message
+            %p
+              type a message
+            %a{href: ""}
+              %i{class: "fa fa-picture-o", aria: {hidden: "true"}}
+          %div.send
+            %a{href: ""}
+              %p Send

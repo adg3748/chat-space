@@ -1,0 +1,194 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.initialized {
+  height: 30px;
+  background-color: #38AEF0;
+  min-width: 980px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 auto;
+  }
+}
+.chat {
+  min-width: 980px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  .chat-side {
+    width: 300px;
+    height: 1000px;
+    background-color: #2f3e51;
+    color: #fff;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:visited {
+        color: #fff;
+      }
+    }
+
+    .chat-user {
+      height: 100px;
+      background-color: #253141;
+      display: flex;
+      align-items: center;
+      h5 {
+        font-size: 16px;
+        font-weight: bold;
+        padding-left: 20px;
+        line-height: 100px;
+      }
+      span {
+        margin-left: auto;
+        padding-right: 20px;
+      }
+    }
+    .chat-group {
+      padding: 23px 0 23px 20px;
+      background-color: #2f3e51;
+      &:hover {
+        background-color: #3f4e61;
+      }
+      .group-name {
+        font-size: 15px;
+      }
+      .message {
+        font-size: 11px;
+      }
+    }
+  }
+  .chat-main {
+    position: relative;
+    width: calc(100% - 300px);
+    height: 1000px;
+    background-color: #f0f0f0;
+    .chat-header {
+      height: 100px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      .group-user {
+        padding: 0 40px;
+          h4 {
+            margin: 0px;
+            padding-top: 30px;
+            width: 202px;
+            font-size: 20px;
+            .group-name-main {
+        }
+      }
+          p {
+            margin: 0px;
+            font-size: 12px;
+            padding-top: 10px;
+            color: #aaa;
+            width: 202px;
+            .members {
+          }
+        }
+      }
+      .edit {
+        height: 40px;
+        border: 2px solid #00ccff;
+        margin: 0 40px 0 auto;
+        display: flex;
+        align-items: center;
+        p {
+          color: #00ccff;
+          margin: 0 auto;
+          padding: 0 20px;
+          a {
+            text-decoration: none;
+            color: #00ccff;
+            &:visited {
+              color: #00ccff;
+            }
+          }
+        }
+      }
+    }
+    .chat-body {
+      li {
+        padding: 40px 0 40px 40px;
+        .user-message {
+          display: flex;
+          align-items: center;
+          .user-name{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 5px 0 0;
+            color: #434a54;
+          }
+          .datetime {
+            padding: 0 0 0 5px;
+            color: #999;
+            font-size: 12px;
+          }
+        }
+        .massage-body {
+          padding: 10px 0 40px 0;
+          font-size: 14px;
+          color: #434a54;
+        }
+      }
+    }
+    .chat-footer {
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      height: 90px;
+      width: 100%;
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      .send-message {
+        height: 50px;
+        width: 100%;
+        background-color: #fff;
+        margin: 0 10px 0 40px;
+        color: #ccc;
+        display: flex;
+        align-items: center;
+        p {
+          padding: 0 10px;
+        }
+        a {
+          margin-left: auto;
+          padding-right: 20px;
+          i {
+            color: #333;
+          }
+        }
+      }
+      .send {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        width: 60px;
+        background-color: #38aef0;
+        padding: 0 20px;
+        margin: 0 40px 0 10px;
+        a {
+          color: #fff;
+          text-decoration: none;
+          &:visited {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
