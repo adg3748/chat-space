@@ -2,13 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.initialized {
-  height: 30px;
-  background-color: #38AEF0;
-  min-width: 980px;
-  color: #fff;
+@mixin align-center() {
   display: flex;
   align-items: center;
+}
+
+$light-blue: #38aef0;
+
+.initialized {
+  height: 30px;
+  background-color: $light-blue;
+  min-width: 980px;
+  color: white;
+  @include align-center();
+
   p {
     margin: 0 auto;
   }
@@ -16,27 +23,27 @@
 .chat {
   min-width: 980px;
   height: 100%;
-  display: flex;
-  align-items: center;
+  @include align-center();
+
   .chat-side {
     width: 300px;
     height: 1000px;
     background-color: #2f3e51;
-    color: #fff;
+    color: white;
 
     a {
-      color: #fff;
+      color: white;
       text-decoration: none;
       &:visited {
-        color: #fff;
+        color: white;
       }
     }
 
     .chat-user {
       height: 100px;
       background-color: #253141;
-      display: flex;
-      align-items: center;
+      @include align-center();
+
       h5 {
         font-size: 16px;
         font-weight: bold;
@@ -69,10 +76,10 @@
     background-color: #f0f0f0;
     .chat-header {
       height: 100px;
-      background-color: #fff;
+      background-color: white;
       border-bottom: 1px solid #ccc;
-      display: flex;
-      align-items: center;
+      @include align-center();
+
       .group-user {
         padding: 0 40px;
           h4 {
@@ -80,8 +87,6 @@
             padding-top: 30px;
             width: 202px;
             font-size: 20px;
-            .group-name-main {
-        }
       }
           p {
             margin: 0px;
@@ -95,19 +100,19 @@
       }
       .edit {
         height: 40px;
-        border: 2px solid #00ccff;
+        border: 2px solid $light-blue;
         margin: 0 40px 0 auto;
-        display: flex;
-        align-items: center;
+        @include align-center();
+
         p {
-          color: #00ccff;
+          color: $light-blue;
           margin: 0 auto;
           padding: 0 20px;
           a {
             text-decoration: none;
-            color: #00ccff;
+            color: $light-blue;
             &:visited {
-              color: #00ccff;
+              color: $light-blue;
             }
           }
         }
@@ -117,8 +122,8 @@
       li {
         padding: 40px 0 40px 40px;
         .user-message {
-          display: flex;
-          align-items: center;
+          @include align-center();
+
           .user-name{
             font-size: 16px;
             font-weight: bold;
@@ -146,16 +151,16 @@
       height: 90px;
       width: 100%;
       background-color: #ccc;
-      display: flex;
-      align-items: center;
+      @include align-center();
+
       .send-message {
         height: 50px;
         width: 100%;
-        background-color: #fff;
+        background-color: white;
         margin: 0 10px 0 40px;
         color: #ccc;
-        display: flex;
-        align-items: center;
+        @include align-center();
+
         p {
           padding: 0 10px;
         }
@@ -168,27 +173,21 @@
         }
       }
       .send {
-        display: flex;
-        align-items: center;
+        @include align-center();
+
         height: 50px;
         width: 60px;
-        background-color: #38aef0;
+        background-color: $light-blue;
         padding: 0 20px;
         margin: 0 40px 0 10px;
         a {
-          color: #fff;
+          color: white;
           text-decoration: none;
           &:visited {
-            color: #fff;
+            color: white;
           }
         }
       }
     }
   }
-}
-
-.clearfix:after {
-  content: "";
-  clear: both;
-  display: block;
 }

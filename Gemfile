@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use haml at rails version 5.0.2
 gem 'haml-rails'
 
-# Add font-aweme
+# Add font-awemesome
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 

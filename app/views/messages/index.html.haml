@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %meta{content: "text/html", charset: "UTF-8", http: {equiv: "Content-Type"}}
+    %meta{ content: "text/html", charset: "UTF-8", http: { equiv: "Content-Type" } }
     %title ChatSpace | ChatDesplay
     = csrf_meta_tags
   %body
@@ -15,12 +15,12 @@
             %span
               name
           %span
-            %a{href: ""}
-              %i{class: "fa fa-pencil-square-o", aria: {hidden: "true"}}
-            %a{href: ""}
-              %i{class: "fa fa-cog", aria: {hidden: "true"}}
+            = link_to '' do
+              %i{ class: "fa fa-pencil-square-o", aria: { hidden: "true" } }
+            = link_to '' do
+              %i{ class: "fa fa-cog", aria: { hidden: "true" } }
         %div.chat-group
-          %a{href: ""}
+          = link_to '' do
             %div.group-name-side group-name
             %div.message message
       %div.chat-main
@@ -34,7 +34,7 @@
                 Members: noname
           %div.edit
             %p
-              %a{href: ""}
+              = link_to '' do
                 Edit
         %div.chat-body
           %ul
@@ -74,8 +74,8 @@
           %div.send-message
             %p
               type a message
-            %a{href: ""}
-              %i{class: "fa fa-picture-o", aria: {hidden: "true"}}
+            = link_to '' do
+              %i{ class: "fa fa-picture-o", aria: { hidden: "true" } }
           %div.send
-            %a{href: ""}
+            = link_to '' do
               %p Send
