@@ -1,10 +1,9 @@
+@import "./mix-in";
+@import "./variable";
 @import "./reset";
 @import "./messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "mix-in";
-@import "variable";
-
 
 /*
  *= require font-awesome
