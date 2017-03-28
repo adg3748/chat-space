@@ -1,0 +1,8 @@
+@mixin align-center() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin color-white() {
+  color: white
+}
