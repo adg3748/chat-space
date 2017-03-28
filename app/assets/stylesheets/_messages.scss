@@ -6,7 +6,7 @@
   height: 30px;
   background-color: $light-blue;
   min-width: 980px;
-  color: white;
+  @include color-white();
   @include align-center();
 
   p {
@@ -22,13 +22,13 @@
     width: 300px;
     height: 1000px;
     background-color: #2f3e51;
-    color: white;
+    @include color-white();
 
     a {
-      color: white;
+      @include color-white();
       text-decoration: none;
       &:visited {
-        color: white;
+        @include color-white();
       }
     }
 
@@ -174,10 +174,10 @@
         padding: 0 20px;
         margin: 0 40px 0 10px;
         a {
-          color: white;
+          @include color-white();
           text-decoration: none;
           &:visited {
-            color: white;
+            @include color-white();
           }
         }
       }
