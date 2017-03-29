@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        current_password: 現在のパスワード
+        remember_me: 保存する
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: が空欄です
+            password:
+              blank: が空欄です
+            current_password:
+              blank: が空欄です
