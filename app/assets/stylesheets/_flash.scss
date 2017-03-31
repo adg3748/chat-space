@@ -1,13 +1,18 @@
-.notice {
+$back__notice: #38aef0;
+$back__alert: #d65f4c;
+
+@mixin flash() {
   text-align: center;
   padding-top: 3px;
-  background-color: #38aef0;
   color: white;
 }
 
+.notice {
+  @include flash();
+  background-color: $back__notice;
+}
+
 .alert {
-  text-align: center;
-  padding-top: 3px;
-  background-color: #d65f4c;
-  color: white;
+  @include flash();
+  background-color: $back__alert;
 }
