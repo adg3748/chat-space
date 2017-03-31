@@ -22,7 +22,7 @@ ja:
 #      not_found_in_database: "Invalid email or password."
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
 #      timeout: 'Your session expired, please sign in again to continue.'
-      unauthenticated: 'ログインしてください。'
+      unauthenticated: 'アカウント登録、或いはログインしてください。'
 #      unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: '本登録を行ってください。'
 #      unconfirmed: 'You have to confirm your account before continuing.'
@@ -72,6 +72,9 @@ ja:
 #      signed_in: 'Signed in successfully.'
       signed_out: 'ログアウトしました。'
 #      signed_out: 'Signed out successfully.'
+      user:
+        already_signed_out: '既にログアウトしています。'
+        already_signed_in: '既にログインしています。'
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
 #      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
