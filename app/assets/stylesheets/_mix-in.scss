@@ -1,3 +1,5 @@
+@import "./variable";
+
 @mixin align-center() {
   display: flex;
   align-items: center;
@@ -5,4 +7,20 @@
 
 @mixin color-white() {
   color: white
+}
+
+@mixin flash() {
+  text-align: center;
+  padding-top: 3px;
+  color: white;
+}
+
+.notice {
+  @include flash();
+  background-color: $back__notice;
+}
+
+.alert {
+  @include flash();
+  background-color: $back__alert;
 }
