@@ -1,29 +1,27 @@
 .chat-group-form
   %h1 新規チャットグループ
-  %form#new_chat_group.new_chat_group{ accept: { charset: "UTF-8" }, action: groups_path, method: "post" }
-    %input{ name: "utf8", type: "hidden", value: "✓" }/
-    %input{ name: "authenticity_token", type: "hidden", value: "AxFKlYEhD6eqX1PiZoTYQDANtKvgcFSXZQXHt5hyTl55/U/CHC5rtPavrcu2za65riz4tekZEy56vP6kEb2wYA==" }/
+  - @group = Group.new
+  = form_for(@group, html: { id: "new_chat_group", class: "new_chat_group", accept: { charset: "UTF-8" }, action: groups_path, method: "post" }) do |f|
     .chat-group-form__field
       .chat-group-form__field--left
-        %label.chat-group-form__label{ for: "chat_group_name" } グループ名
+        = f.label :chat, :グループ名, class: "chat-group-form__label"
       .chat-group-form__field--right
-        %input#chat_group_name.chat-group-form__input{ name: "chat_group[name]", placeholder: "グループ名を入力してください", type: "text" }/
+        = text_field :chat, :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
     .chat-group-form__field
       .chat-group-form__field--left
-        %label.chat-group-form__label{ for: "user-search-field_chat_group_members" } チャットメンバーを追加
+        = f.label :chat, :チャットメンバーを追加, class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-form__search
-          %input#user-search-field.chat-group-form__input{ id: "chat_group_members", placeholder: "追加したいユーザー名を入力してください", type: "text" }/
-        #user-search-result
+          = f.collection_check_boxes :name, User.all, :id, :name do |f|
+            = f.label { f.check_box + f.text }
     .chat-group-form__field
       .chat-group-form__field--left
-        %label.chat-group-form__label{ for: "chat_group_チャットメンバー" } チャットメンバー
+        = f.label :chat, :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user
-            %input{ name: "chat_group[user_ids][]", type: "hidden", value: "22" }/
-            %p.chat-group-user__name seo_kyohei
+            %p.chat-group-user__name nanashi
     .chat-group-form__field
       .chat-group-form__field--left
       .chat-group-form__field--right
-        %input.chat-group-form__action-btn{ name: "commit", type: "submit", value: "Save", data: { disable: { with: "送信中..." }}}/
+        = submit_tag :Save, class: "chat-group-form__action-btn", disable_with: "送信中..."
