@@ -1,5 +1,6 @@
 .chat-group-form {
   width: 980px;
+  height: 454px;
   margin: 60px auto;
   padding: 40px;
   background-color: #fff;
@@ -10,6 +11,7 @@
   h1 {
     letter-spacing: 2px;
     font-size: 24px;
+    font-weight: bold;
     text-align: center;
   }
 
@@ -87,7 +89,7 @@
       cursor: pointer;
 
       &.chat-group-user__btn--add {
-        color: #38aef0;
+        color: $light-blue;
       }
 
       &.chat-group-user__btn--remove {
@@ -100,7 +102,7 @@
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: $light-blue;
     border: 0;
   }
 }

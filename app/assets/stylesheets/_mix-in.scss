@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+@mixin clearfix() {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 @mixin color-white() {
   color: white
 }
