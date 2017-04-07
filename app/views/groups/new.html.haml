@@ -1,12 +1,11 @@
 .chat-group-form
   %h1 新規チャットグループ
-  - @group = Group.new
   = form_for(@group, html: { id: "new_chat_group", class: "new_chat_group", accept: { charset: "UTF-8" }, action: groups_path, method: "post" }) do |f|
     .chat-group-form__field
       .chat-group-form__field--left
         = f.label :chat, :グループ名, class: "chat-group-form__label"
       .chat-group-form__field--right
-        = text_field :chat, :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
+        = text_field :chat, :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", autofocus: "autofocus"
     .chat-group-form__field
       .chat-group-form__field--left
         = f.label :chat, :チャットメンバーを追加, class: "chat-group-form__label"
