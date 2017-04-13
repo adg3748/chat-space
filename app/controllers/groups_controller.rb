@@ -9,14 +9,23 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(name: group_params[:name])
-    redirect_to root_path
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to group_messages_path(@group.id), notice: "グループ作成に成功しました。"
+    else
+      flash.now[:alert] = "グループ作成に失敗しました。"
+      render :new
+    end
   end
 
   def update
     @group = Group.find(params[:id])
-    @group.update(group_params)
-    redirect_to root_path
+    if @group.update(group_params)
+      redirect_to group_messages_path(@group.id), notice: "グループ編集に成功しました。"
+    else
+      flash.now[:alert] = "グループ作成に失敗しました。"
+      render :edit
+    end
   end
 
   private
