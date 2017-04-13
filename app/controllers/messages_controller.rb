@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   before_action :move_to_index
 
   def index
