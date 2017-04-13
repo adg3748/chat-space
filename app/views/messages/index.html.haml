@@ -5,15 +5,12 @@
     %title ChatSpace | ChatDesplay
     = csrf_meta_tags
   %body
-    %div.initialized
-      %p
-        チャットグループが作成されました。
     %div.chat
       %div.chat-side
         %div.chat-user
           %h5
             %span
-              name
+              = current_user.name
           %span
             = link_to new_group_path do
               .fa.fa-pencil-square-o
@@ -21,20 +18,21 @@
               .fa.fa-cog
         %div.chat-group
           = link_to '' do
-            %div.group-name-side group-name
+            %div.group-name-side
+              = @group.name
             %div.message message
       %div.chat-main
         %div.chat-header
           %div.group-user
             %h4
               %span.group-name-main
-                sampleグループ
+                = @group.name
             %p
               %span.members
                 Members: noname
           %div.edit
             %p
-              = link_to edit_group_path(@group[:id]) do
+              = link_to edit_group_path(@group) do
                 Edit
         %div.chat-body
           %ul
