@@ -3,19 +3,19 @@
   = form_for(@group, html: { id: "new_chat_group", class: "new_chat_group", accept: { charset: "UTF-8" }, action: groups_path, method: "post" }) do |f|
     .chat-group-form__field
       .chat-group-form__field--left
-        = f.label :chat, :グループ名, class: "chat-group-form__label"
+        = f.label :name, :グループ名, class: "chat-group-form__label"
       .chat-group-form__field--right
-        = text_field :chat, :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", autofocus: "autofocus"
+        = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", autofocus: "autofocus"
     .chat-group-form__field
       .chat-group-form__field--left
-        = f.label :chat, :チャットメンバーを追加, class: "chat-group-form__label"
+        = f.label :group, :チャットメンバーを追加, class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-form__search
-          = f.collection_check_boxes :name, User.all, :id, :name do |f|
-            = f.label { f.check_box + f.text }
+          = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
+            = b.label { b.check_box + b.text }
     .chat-group-form__field
       .chat-group-form__field--left
-        = f.label :chat, :チャットメンバー, class: "chat-group-form__label"
+        = f.label :group, :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user
