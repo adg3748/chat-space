@@ -69,11 +69,9 @@
               %p.message-body
                 no message
         %div.chat-footer
-          %div.send-message
-            %p
-              type a message
-            = link_to '' do
+          = form_for(@message, url: group_messages_path(@group), method: :post) do |f|
+            %div.send-message
+              = f.text_area :content, row: "2", placeholder: "type a message"
               %i{ class: "fa fa-picture-o", aria: { hidden: "true" }}
-          %div.send
-            = link_to '' do
-              %p Send
+            %div
+              = submit_tag :Save, class: "submit", disable_with: "送信中..."

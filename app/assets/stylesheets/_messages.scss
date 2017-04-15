@@ -8,7 +8,6 @@
   min-width: 980px;
   @include color-white();
   @include align-center();
-
   p {
     margin: 0 auto;
   }
@@ -17,13 +16,11 @@
   min-width: 980px;
   height: 100%;
   @include align-center();
-
   .chat-side {
     width: 300px;
     height: 1000px;
     background-color: #2f3e51;
     @include color-white();
-
     a {
       @include color-white();
       text-decoration: none;
@@ -31,12 +28,10 @@
         @include color-white();
       }
     }
-
     .chat-user {
       height: 100px;
       background-color: #253141;
       @include align-center();
-
       h5 {
         font-size: 16px;
         font-weight: bold;
@@ -72,7 +67,6 @@
       background-color: white;
       border-bottom: 1px solid #ccc;
       @include align-center();
-
       .group-user {
         padding: 0 40px;
           h4 {
@@ -115,7 +109,6 @@
         padding: 40px 0 40px 40px;
         .user-message {
           @include align-center();
-
           .user-name{
             font-size: 16px;
             font-weight: bold;
@@ -141,44 +134,38 @@
       left: 0;
       bottom: 0;
       height: 90px;
-      width: 100%;
       background-color: #ccc;
-      @include align-center();
-
+      form {
+        @include align-center();
+      }
       .send-message {
         height: 50px;
-        width: 100%;
+        width: calc(100% - 115px);
         background-color: white;
-        margin: 0 10px 0 40px;
+        margin: 20px 10px 0 40px;
         color: #ccc;
         @include align-center();
-
-        p {
-          padding: 0 10px;
+        textarea {
+          display: inline-block;
+          height: 30px;
+          width: 100%;
+          border: none;
+          resize: none;
         }
-        a {
-          margin-left: auto;
-          padding-right: 20px;
-          i {
-            color: #333;
-          }
+        i {
+          width: 40px;
+          box-sizing: border-box;
+          color: #333;
         }
       }
-      .send {
+      .submit {
         @include align-center();
-
         height: 50px;
-        width: 60px;
+        width: 100px;
         background-color: $light-blue;
         padding: 0 20px;
-        margin: 0 40px 0 10px;
-        a {
-          @include color-white();
-          text-decoration: none;
-          &:visited {
-            @include color-white();
-          }
-        }
+        margin: 20px 40px 0 10px;
+        color: white;
       }
     }
   }
