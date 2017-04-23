@@ -1,5 +1,9 @@
 @import "./variable";
 
+@mixin header-height() {
+  height: 100px;
+}
+
 @mixin align-center() {
   display: flex;
   align-items: center;
