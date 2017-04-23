@@ -2,7 +2,8 @@
 %html
   %head
     %meta{ content: "text/html", charset: "UTF-8", http: { equiv: "Content-Type" }}
-    %title ChatSpace | ChatDesplay
+    %title 
+      ChatDesplay | ChatSpace
     = csrf_meta_tags
   %body
     %div.chat
@@ -16,11 +17,9 @@
               .fa.fa-pencil-square-o
             = link_to edit_user_registration_path do
               .fa.fa-cog
-        %div.chat-group
-          = link_to '' do
-            %div.group-name-side
-              = @group.name
-            %div.message message
+        %div.chat-groups
+          - @groups.each do |group|
+            = render partial: "chat-groups", locals: { group: group }
       %div.chat-main
         %div.chat-header
           %div.group-user
@@ -29,45 +28,16 @@
                 = @group.name
             %p
               %span.members
-                Members: noname
+                Members: 
+                - @group.users.each do |user|
+                  = user.name
           %div.edit
             %p
               = link_to edit_group_path(@group) do
                 Edit
         %div.chat-body
-          %ul
-            %li
-              %div.user-message
-                %p.user-name
-                  noname
-                %p.datetime
-                  20XX/XX/XX
-              %p.message-body
-                no message
-            %li
-              %div.user-message
-                %p.user-name
-                  noname
-                %p.datetime
-                  20XX/XX/XX
-              %p.message-body
-                no message
-            %li
-              %div.user-message
-                %p.user-name
-                  noname
-                %p.datetime
-                  20XX/XX/XX
-              %p.message-body
-                no message
-            %li
-              %div.user-message
-                %p.user-name
-                  noname
-                %p.datetime
-                  20XX/XX/XX
-              %p.message-body
-                no message
+          - @messages.each do |message|
+            = render partial: "chat-messages", locals: { message: message }
         %div.chat-footer
           = form_for(@message, url: group_messages_path(@group), method: :post) do |f|
             %div.send-message
