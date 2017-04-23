@@ -1,34 +1,48 @@
 class GroupsController < ApplicationController
+  before_action :get_group, only:[:edit, :update]
+
+  def index
+    @groups = current_user.groups
+  end
 
   def new
     @group = Group.new
+    #グループ作成・編集フォームの書き方を統一するため
+    @users = []
+    @users << current_user
   end
 
   def edit
-    @group = Group.find(params[:id])
+    #get_groupで@group取得済み
+    #グループ作成・編集フォームの書き方を統一するため    
+    @users = @group.users
   end
 
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_messages_path(@group.id), notice: "グループ作成に成功しました。"
+      #ひとまずindexにリダイレクト
+      redirect_to root_url, notice: "グループ作成に成功しました。"
     else
-      flash.now[:alert] = "グループ作成に失敗しました。"
-      render :new
+      redirect_to new_group_url, alert: "グループ作成に失敗しました。"
     end
   end
 
   def update
-    @group = Group.find(params[:id])
+    #get_groupで@group取得済み
     if @group.update(group_params)
-      redirect_to group_messages_path(@group.id), notice: "グループ編集に成功しました。"
+      #ひとまずindexにリダイレクト
+      redirect_to root_url, notice: "グループ編集に成功しました。"
     else
-      flash.now[:alert] = "グループ編集に失敗しました。"
-      render :edit
+      redirect_to edit_group_url(@group), alert: "グループ編集に失敗しました。"
     end
   end
 
   private
+
+  def get_group
+    @group = Group.find(params[:id])
+  end
 
   def group_params
     params.require(:group).permit(:name, user_ids: [])
