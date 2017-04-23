@@ -1,26 +1,5 @@
-.chat-group-form
-  %h1 新規チャットグループ
-  = form_for(@group, html: { id: "new_chat_group", class: "new_chat_group", accept: { charset: "UTF-8" }, action: groups_path, method: "post" }) do |f|
-    .chat-group-form__field
-      .chat-group-form__field--left
-        = f.label :name, :グループ名, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", autofocus: "autofocus"
-    .chat-group-form__field
-      .chat-group-form__field--left
-        = f.label :group, :チャットメンバーを追加, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        .chat-group-form__search
-          = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
-            = b.label { b.check_box + b.text }
-    .chat-group-form__field
-      .chat-group-form__field--left
-        = f.label :group, :チャットメンバー, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        #chat-group-users
-          #chat-group-user-22.chat-group-user
-            %p.chat-group-user__name nanashi
-    .chat-group-form__field
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = submit_tag :Save, class: "chat-group-form__action-btn", disable_with: "送信中..."
+- provide(:title, "CreateGroup")
+- provide(:form_title, "新規チャットグループ")
+- provide(:form_id, "new_chat_group")
+- provide(:form_class, "new_chat_group")
+- provide(:form_method, "post")

@@ -1,26 +1,5 @@
-.chat-group-form
-  %h1 チャットグループ編集
-  = form_for(@group, html: { id: "edit_chat_group", class: "edit_chat_group", accept: { charset: "UTF-8" }, action: group_path, method: "patch" }) do |f|
-    .chat-group-form__field
-      .chat-group-form__field--left
-        = f.label :name, :グループ名, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        = f.text_field :name, class: "chat-group-form__input", value: "#{@group[:name]}", autofocus: "autofocus"
-    .chat-group-form__field
-      .chat-group-form__field--left
-        = f.label :group, :チャットメンバーを追加, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        .chat-group-form__search
-          = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
-            = b.label { b.check_box + b.text }
-    .chat-group-form__field
-      .chat-group-form__field--left
-        = f.label :group, :チャットメンバー, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        #chat-group-users
-          #chat-group-user-22.chat-group-user
-            %p.chat-group-user__name nanashi
-    .chat-group-form__field
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = submit_tag :Save, class: "chat-group-form__action-btn", disable_with: "送信中..."
+- provide(:title, "EditGroup")
+- provide(:form_title, "チャットグループ編集")
+- provide(:form_id, "edit_chat_group")
+- provide(:form_class, "edit_chat_group")
+- provide(:form_method, "patch")
