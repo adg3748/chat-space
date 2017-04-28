@@ -69,7 +69,6 @@ html, body {
       width: 80vw;
       min-width:400px;
       height: 100vh;
-      background-color: #f0f0f0;
       .chat-header {
         box-sizing: border-box;
         @include header-height();
@@ -172,7 +171,7 @@ html, body {
           width: 100px;
           background-color: $light-blue;
           padding: 0 20px;
-          margin: 20px 40px 0 10px;
+          margin-left: 10px;
           color: white;
           &:hover{
           cursor: pointer;
