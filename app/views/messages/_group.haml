@@ -1,0 +1,9 @@
+.chat-group
+  = link_to message_path(group) do
+    .group-name-side
+      = group.name
+    .message
+      - unless group.messages.last.nil?
+        = group.messages.last.content
+      - else
+        まだメッセージはありません

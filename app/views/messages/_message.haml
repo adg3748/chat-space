@@ -1,9 +1,10 @@
 %ul
   %li
-    %div.user-message
+    .user-message
       %p.user-name
         = message.user.name
       %p.datetime
-        = message.created_at
+        - time = Time.now
+        = time.strftime("%Y/%m/%d %H:%M:%S")
     %p.message-body
       = message.content
