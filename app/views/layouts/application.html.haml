@@ -2,7 +2,11 @@
 %html
   %head
     %meta{ content: "text/html", charset: "UTF-8", http: { equiv: "Content-Type" }}
-    %title ChatSpace
+    %title
+      - unless yield(:title).nil?
+        #{yield :title} | ChatSpace
+      - else
+        ChatSpace
     = stylesheet_link_tag    'application', media: 'all', data: { turbolinks: { track: true }}
     = javascript_include_tag 'application', data: { turbolinks: { track: true }}
     = csrf_meta_tags
@@ -13,4 +17,18 @@
       %p{ class: 'alert' }
         = alert
   %body
-    = yield
+    .chat
+      .chat-side
+        .chat-user
+          %h5
+            %span
+              = current_user.name
+          %span
+            = link_to new_group_path do
+              .fa.fa-pencil-square-o
+            = link_to edit_user_registration_path do
+              .fa.fa-cog
+        .chat-groups
+          = render partial: "group", collection: @groups
+      = yield
+      

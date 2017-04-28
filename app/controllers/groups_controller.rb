@@ -14,15 +14,14 @@ class GroupsController < ApplicationController
 
   def edit
     #get_groupで@group取得済み
-    #グループ作成・編集フォームの書き方を統一するため    
+    #グループ作成・編集フォームの書き方を統一するため
     @users = @group.users
   end
 
   def create
     @group = Group.new(group_params)
     if @group.save
-      #ひとまずindexにリダイレクト
-      redirect_to root_url, notice: "グループ作成に成功しました。"
+      redirect_to message_url(@group), notice: "グループ作成に成功しました。"
     else
       redirect_to new_group_url, alert: "グループ作成に失敗しました。"
     end
@@ -31,8 +30,7 @@ class GroupsController < ApplicationController
   def update
     #get_groupで@group取得済み
     if @group.update(group_params)
-      #ひとまずindexにリダイレクト
-      redirect_to root_url, notice: "グループ編集に成功しました。"
+      redirect_to message_url(@group), notice: "グループ編集に成功しました。"
     else
       redirect_to edit_group_url(@group), alert: "グループ編集に失敗しました。"
     end
