@@ -3,7 +3,7 @@
   %head
     %meta{ content: "text/html", charset: "UTF-8", http: { equiv: "Content-Type" }}
     %title
-      - unless yield(:title).nil?
+      - unless yield(:title).blank?
         #{yield :title} | ChatSpace
       - else
         ChatSpace
@@ -31,4 +31,3 @@
         .chat-groups
           = render partial: "group", collection: @groups
       = yield
-      
