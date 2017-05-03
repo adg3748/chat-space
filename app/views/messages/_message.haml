@@ -4,7 +4,7 @@
       %p.user-name
         = message.user.name
       %p.datetime
-        - time = Time.now
+        - time = message.created_at
         = time.strftime("%Y/%m/%d %H:%M:%S")
     %p.message-body
       = message.content
