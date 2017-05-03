@@ -1,0 +1,10 @@
+%ul
+  %li
+    .user-message
+      %p.user-name
+        = message.user.name
+      %p.datetime
+        - time = message.created_at
+        = time.strftime("%Y/%m/%d %H:%M:%S")
+    %p.message-body
+      = message.content

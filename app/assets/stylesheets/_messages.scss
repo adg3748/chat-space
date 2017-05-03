@@ -2,182 +2,179 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.initialized {
-  height: 30px;
-  background-color: $light-blue;
-  min-width: 980px;
-  @include color-white();
-  @include align-center();
-
-  p {
-    margin: 0 auto;
-  }
-}
-.chat {
-  min-width: 980px;
-  height: 100%;
-  @include align-center();
-
-  .chat-side {
-    width: 300px;
-    height: 1000px;
-    background-color: #2f3e51;
+html, body {
+  height:100vh;
+  .initialized {
+    height: 30px;
+    background-color: $light-blue;
+    min-width: 980px;
     @include color-white();
-
-    a {
-      @include color-white();
-      text-decoration: none;
-      &:visited {
-        @include color-white();
-      }
-    }
-
-    .chat-user {
-      height: 100px;
-      background-color: #253141;
-      @include align-center();
-
-      h5 {
-        font-size: 16px;
-        font-weight: bold;
-        padding-left: 20px;
-        line-height: 100px;
-      }
-      span {
-        margin-left: auto;
-        padding-right: 20px;
-      }
-    }
-    .chat-group {
-      padding: 23px 0 23px 20px;
-      background-color: #2f3e51;
-      &:hover {
-        background-color: #3f4e61;
-      }
-      .group-name {
-        font-size: 15px;
-      }
-      .message {
-        font-size: 11px;
-      }
+    @include align-center();
+    p {
+      margin: 0 auto;
     }
   }
-  .chat-main {
-    position: relative;
-    width: calc(100% - 300px);
-    height: 1000px;
-    background-color: #f0f0f0;
-    .chat-header {
-      height: 100px;
-      background-color: white;
-      border-bottom: 1px solid #ccc;
-      @include align-center();
-
-      .group-user {
-        padding: 0 40px;
-          h4 {
-            margin: 0px;
-            padding-top: 30px;
-            width: 202px;
-            font-size: 20px;
+  .chat {
+    min-height: 500px;
+    height: 100vh;
+    @include align-center();
+    .chat-side {
+      width: 20vw;
+      min-width:170px;
+      height: 100vh;
+      background-color: #2f3e51;
+      @include color-white();
+      a {
+        @include color-white();
+        text-decoration: none;
+        &:visited {
+          @include color-white();
+        }
       }
-          p {
-            margin: 0px;
-            font-size: 12px;
-            padding-top: 10px;
-            color: #aaa;
-            width: 202px;
-            .members {
+      .chat-user {
+        @include header-height();
+        background-color: #253141;
+        @include align-center();
+        h5 {
+          font-size: 16px;
+          font-weight: bold;
+          padding-left: 20px;
+          line-height: 100px;
+        }
+        span {
+          margin-left: auto;
+          padding-right: 20px;
+        }
+      }
+      .chat-groups{
+        overflow: scroll;
+        height: calc(100vh - 100px);
+        .chat-group {
+          padding: 23px 0 23px 20px;
+          background-color: #2f3e51;
+          &:hover {
+            background-color: #3f4e61;
+          }
+          .group-name-side {
+            font-size: 15px;
+          }
+          .message {
+            font-size: 11px;
           }
         }
       }
-      .edit {
-        height: 40px;
-        border: 2px solid $light-blue;
-        margin: 0 40px 0 auto;
+    }
+    .chat-main {
+      position: relative;
+      width: 80vw;
+      min-width:400px;
+      height: 100vh;
+      .chat-header {
+        box-sizing: border-box;
+        @include header-height();
+        background-color: white;
+        border-bottom: 1px solid #ccc;
         @include align-center();
-
-        p {
-          color: $light-blue;
-          margin: 0 auto;
-          padding: 0 20px;
-          a {
-            text-decoration: none;
+        .group-user {
+          padding: 0 40px;
+            h4 {
+              margin: 0px;
+              padding-top: 30px;
+              font-size: 20px;
+        }
+            p {
+              margin: 0px;
+              font-size: 12px;
+              padding-top: 10px;
+              color: #aaa;
+              .members {
+            }
+          }
+        }
+        .edit {
+          height: 40px;
+          border: 2px solid $light-blue;
+          margin: 0 40px 0 auto;
+          @include align-center();
+          p {
             color: $light-blue;
-            &:visited {
+            margin: 0 auto;
+            padding: 0 20px;
+            a {
+              text-decoration: none;
               color: $light-blue;
+              &:visited {
+                color: $light-blue;
+              }
             }
           }
         }
       }
-    }
-    .chat-body {
-      li {
-        padding: 40px 0 40px 40px;
-        .user-message {
-          @include align-center();
-
-          .user-name{
-            font-size: 16px;
-            font-weight: bold;
-            padding-right: 5px;
+      .chat-body {
+        overflow: scroll;
+        height: calc(100vh - 190px);
+        li {
+          padding: 40px 0 40px 40px;
+          .user-message {
+            @include align-center();
+            .user-name{
+              font-size: 16px;
+              font-weight: bold;
+              padding-right: 5px;
+              color: #434a54;
+            }
+            .datetime {
+              padding-left: 5px;
+              color: #999;
+              font-size: 12px;
+            }
+          }
+          .massage-body {
+            padding: 10px 0 40px;
+            font-size: 14px;
             color: #434a54;
           }
-          .datetime {
-            padding-left: 5px;
-            color: #999;
-            font-size: 12px;
-          }
-        }
-        .massage-body {
-          padding: 10px 0 40px;
-          font-size: 14px;
-          color: #434a54;
         }
       }
-    }
-    .chat-footer {
-      position: absolute;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      height: 90px;
-      width: 100%;
-      background-color: #ccc;
-      @include align-center();
-
-      .send-message {
-        height: 50px;
-        width: 100%;
-        background-color: white;
-        margin: 0 10px 0 40px;
-        color: #ccc;
-        @include align-center();
-
-        p {
-          padding: 0 10px;
+      .chat-footer {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 90px;
+        background-color: #ccc;
+        form {
+          @include align-center();
         }
-        a {
-          margin-left: auto;
-          padding-right: 20px;
+        .send-message {
+          height: 50px;
+          width: calc(100% - 115px);
+          background-color: white;
+          margin: 20px 10px 0 40px;
+          color: #ccc;
+          @include align-center();
+          textarea {
+            display: inline-block;
+            height: 30px;
+            width: 100%;
+            border: none;
+            resize: none;
+          }
           i {
+            width: 40px;
+            box-sizing: border-box;
             color: #333;
           }
         }
-      }
-      .send {
-        @include align-center();
-
-        height: 50px;
-        width: 60px;
-        background-color: $light-blue;
-        padding: 0 20px;
-        margin: 0 40px 0 10px;
-        a {
-          @include color-white();
-          text-decoration: none;
-          &:visited {
-            @include color-white();
+        .submit {
+          height: 50px;
+          width: 100px;
+          background-color: $light-blue;
+          padding: 0 20px;
+          margin-left: 10px;
+          color: white;
+          &:hover{
+          cursor: pointer;
           }
         }
       }
