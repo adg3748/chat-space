@@ -14,9 +14,15 @@ ja:
       models:
         user:
           attributes:
+            name:
+              blank: 'が空欄です'
+              taken: 'が重複しています'
             email:
               blank: 'が空欄です'
+              taken: 'が重複しています'
             password:
               blank: 'が空欄です'
+            password_confirmation:
+              confirmation: 'が異なっています'
             current_password:
               blank: 'が空欄です'
