@@ -1,10 +1,6 @@
 class GroupsController < ApplicationController
   before_action :get_group, only:[:edit, :update]
 
-  def index
-    @groups = User.includes(:groups_users).order("created_at DESC").where(user_id: current_user.id)
-  end
-
   def new
     @group = Group.new
     #グループ作成・編集フォームの書き方を統一するため
