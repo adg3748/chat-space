@@ -17,6 +17,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'faker'
 end
 group :development do
   gem 'web-console', '~> 2.0'
