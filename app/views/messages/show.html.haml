@@ -1,39 +1,38 @@
 - provide(:title, "#{@group.name} ")
-  %body
-    .chat
-      .chat-side
-        .chat-user
-          %h5
-            %span
-              = current_user.name
+%body
+  .chat
+    .chat-side
+      .chat-user
+        %h5
           %span
-            = link_to new_group_path do
-              .fa.fa-pencil-square-o
-            = link_to edit_user_registration_path do
-              .fa.fa-cog
-        .chat-groups
-          = render partial: "group", collection: @groups
-      .chat-main
-        .chat-header
-          .group-user
-            %h4
-              %span.group-name-main
-                = @group.name
-            %p
-              %span.members
-                Members:
-                - @group.users.each do |user|
-                  = user.name
-          .edit
-            %p
-              = link_to edit_group_path(@group) do
-                Edit
-        .chat-body
-          = render partial: "message", collection: @messages
+            = current_user.name
+        %span
+          = link_to new_group_path do
+            .fa.fa-pencil-square-o
+          = link_to edit_user_registration_path do
+            .fa.fa-cog
+      .chat-groups
+        = render partial: "group", collection: @groups
+    .chat-main
+      .chat-header
+        .group-user
+          %h4
+            %span.group-name-main
+              = @group.name
+          %p
+            %span.members
+              Members:
+              - @group.users.each do |user|
+                = user.name
+        .edit
+          %p
+            = link_to edit_group_path(@group) do
+              Edit
+      .chat-body
+        = render partial: "message", collection: @messages
         .chat-footer
           = form_for(@message, url: group_messages_path(@group), method: :post) do |f|
             .send-message
               = f.text_area :content, row: "2", placeholder: "type a message"
               %i{ class: "fa fa-picture-o", aria: { hidden: "true" }}
-
               = submit_tag :Save, class: "submit", disable_with: "送信中..."
