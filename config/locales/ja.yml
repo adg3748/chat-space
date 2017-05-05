@@ -26,3 +26,11 @@ ja:
               confirmation: 'が異なっています'
             current_password:
               blank: 'が空欄です'
+        message:
+          attributes:
+            content:
+              blank: 'メッセージを入力してください'
+        group:
+          attributes:
+            name:
+              blank: 'グループ名を入力してください'
