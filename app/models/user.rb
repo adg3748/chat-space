@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   #validation
   validates :name, presence: true, uniqueness: true
   validates :encrypted_password, :sign_in_count, presence: true
