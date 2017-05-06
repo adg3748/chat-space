@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
+  #variables
   namae = Faker::Name.name
   pass = Faker::Internet.password(8)
-  num = Faker::Number.between(1, 100)
 
   factory :user do
     name namae
@@ -12,18 +12,15 @@ FactoryGirl.define do
   end
 
   factory :group do
-    name namae
+    name Faker::Lorem.words
   end
 
   factory :message do
-    content Faker::Lorem.words
-    user_id num
-    group_id num
-  end
+    content Faker::Lorem.word
+    user_id Faker::Number.between(1, 100)
+    group_id Faker::Number.between(1, 100)
+    created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
 
-  factory :groups_users do
-    user_id num
-    group_id num
   end
 
 end
