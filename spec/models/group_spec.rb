@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe Group do
   describe '#create' do
 
@@ -10,7 +11,13 @@ describe Group do
     it "is invalid without a name" do
       group = build(:group, name: "")
       group.valid?
-      expect(group.errors[:name]).to include("グループ名を入力してください")
+      expect(group.errors[:name]).to include("1文字以上8文字以内で入力してください")
+    end
+
+    it "is invalid due to too_long name" do
+      group = build(:group, name: "000000000")
+      group.valid?
+      expect(group.errors[:name]).to include("1文字以上8文字以内で入力してください")
     end
 
   end
