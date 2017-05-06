@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :move_to_sign_in
+  # before_action :move_to_sign_in
   before_action :get_groups, only: [:index, :show]
 
   def index

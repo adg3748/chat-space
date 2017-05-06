@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ content: "text/html", charset: "UTF-8", http: { equiv: "Content-Type" }}
-    %title 
+    %title
       - unless yield(:title).blank?
         #{yield :title} | ChatSpace
       - else
@@ -18,14 +18,14 @@
         = alert
   %body
     .chat-group-form
-      %h1 
+      %h1
         = yield :form_title
       = form_for(@group, html: { id: "#{yield :form_id}", class: "#{yield :form_class}", accept: { charset: "UTF-8" }, action: groups_path, method: "#{yield :form_method}" }) do |f|
         .chat-group-form__field
           .chat-group-form__field--left
             = f.label :name, :グループ名, class: "chat-group-form__label"
           .chat-group-form__field--right
-            = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", autofocus: "autofocus"
+            = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください(8文字以内)", autofocus: "autofocus"
         .chat-group-form__field
           .chat-group-form__field--left
             = f.label :group, :チャットメンバーを追加, class: "chat-group-form__label"
