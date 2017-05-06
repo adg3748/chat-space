@@ -30,6 +30,10 @@ ja:
           attributes:
             content:
               blank: 'メッセージを入力してください'
+            user_id:
+              blank: '不正な送信です'
+            group_id:
+              blank: '不正な送信です'
         group:
           attributes:
             name:
