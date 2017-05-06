@@ -6,7 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 
-#テストにおいてdeviseの機能を用いるため
+# テストにおいてdeviseの機能を用いるため
 require 'devise'
 require File.expand_path("spec/support/controller_macros.rb")
 
@@ -33,13 +33,13 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
-  #テストにおいてdeviseの機能を用いるため
+  # テストにおいてdeviseの機能を用いるため
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerMacros, type: :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  #FactoryGirlのレシーバを省略するため
+  # FactoryGirlのレシーバを省略するため
   config.include FactoryGirl::Syntax::Methods
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  #validation
+  # validation
   validates :content, :user_id, :group_id, presence: true
   belongs_to :user
   belongs_to :group

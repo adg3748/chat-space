@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  #variables
+  # variables
   namae = Faker::Name.name
   pass = Faker::Internet.password(8)
 
@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :group do
-    name Faker::Lorem.words
+    name Faker::Lorem.word
   end
 
   factory :message do

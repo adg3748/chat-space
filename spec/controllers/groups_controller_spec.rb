@@ -1,13 +1,13 @@
 require 'rails_helper'
+
 describe GroupsController, type: :controller do
 
   let(:user) { create(:user) }
   let(:group) { create(:group) }
-  #createしたユーザーをuserに格納
+  # createしたユーザーをuserに格納
 
   before do
-    login_user user
-    #letで格納したuserでログイン
+    login_user user # letで格納したuserでログイン
   end
 
   describe 'GET #new' do
@@ -24,7 +24,7 @@ describe GroupsController, type: :controller do
     it "assigns the requested group to @group" do
       get :edit, params: { id: group }
       expect(assigns(:group)).to eq group
-      #editアクションの中の@groupをassignsの引数にシンボルで指定
+      # editアクションの中の@groupをassignsの引数にシンボルで指定
     end
 
     it "renders the :edit template" do
