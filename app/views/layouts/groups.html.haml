@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ content: "text/html", charset: "UTF-8", http: { equiv: "Content-Type" }}
-    %title 
+    %title
       - unless yield(:title).blank?
         #{yield :title} | ChatSpace
       - else
@@ -18,7 +18,7 @@
         = alert
   %body
     .chat-group-form
-      %h1 
+      %h1
         = yield :form_title
       = form_for(@group, html: { id: "#{yield :form_id}", class: "#{yield :form_class}", accept: { charset: "UTF-8" }, action: groups_path, method: "#{yield :form_method}" }) do |f|
         .chat-group-form__field

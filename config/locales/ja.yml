@@ -1,0 +1,40 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: 'ユーザーネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認用)'
+        current_password: '現在のパスワード'
+        remember_me: '保存する'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: 'が空欄です'
+              taken: 'が重複しています'
+            email:
+              blank: 'が空欄です'
+              taken: 'が重複しています'
+            password:
+              blank: 'が空欄です'
+            password_confirmation:
+              confirmation: 'が異なっています'
+            current_password:
+              blank: 'が空欄です'
+        message:
+          attributes:
+            content:
+              blank: 'メッセージを入力してください'
+            user_id:
+              blank: '不正な送信です'
+            group_id:
+              blank: '不正な送信です'
+        group:
+          attributes:
+            name:
+              blank: 'グループ名を入力してください'

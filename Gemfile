@@ -15,9 +15,14 @@ gem 'devise'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'erb2haml'
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
