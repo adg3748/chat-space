@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    if @group.save
+    if @group.save!
       redirect_to message_url(@group), notice: "グループ作成に成功しました。"
     else
       redirect_to new_group_url, alert: "グループ作成に失敗しました。"

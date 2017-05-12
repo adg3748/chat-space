@@ -11,6 +11,8 @@ ja:
         current_password: '現在のパスワード'
         remember_me: '保存する'
     errors:
+      messages:
+        record_invalid: '不正な値です'
       models:
         user:
           attributes:
