@@ -1,21 +1,25 @@
 class MessagesController < ApplicationController
-  # before_action :move_to_sign_in
+  before_action :move_to_sign_in
   before_action :get_groups, only: [:index, :show]
 
   def index
   end
 
   def show
-    @group = Group.find(params[:id])
-    @message = Message.new
-    @messages = @group.messages.includes(:group).order("created_at DESC")
+    @group = Group.includes(:users).includes(:messages).find(params[:id])
+    gon.group = @group # Gemのgonを用いてjs内でcontrollerで設定した変数を使えるように
+    @message = current_user.messages.new
+    @messages = @group.messages.includes(:user).includes(:group).order("created_at ASC")
   end
 
   def create
     @group = Group.find(params[:group_id])
-    @message = Message.new(content: message_params[:content], user_id: current_user.id, group_id: @group.id)
-    if @message.save
-      redirect_to message_url(@group)
+    @message = current_user.messages.new(message_params)
+    if @message.save!
+      respond_to do |format|
+        format.html { redirect_to message_url(@group) }
+        format.json { render json: message_json(@message) }
+      end
     else
       flash.now[:alert] = "メッセージの送信に失敗しました。"
       redirect_to message_url(@group)
@@ -29,11 +33,23 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content).merge(group_id: params[:group_id])
   end
 
   def get_groups
-    @groups = current_user.groups.includes(:users).order("created_at DESC")
+    @groups = current_user.groups.includes(:users).includes(:messages).order("created_at DESC")
+  end
+
+  def message_json(message)
+    {
+      id: message.id,
+      name: message.user.name,
+      content: message.content,
+      user_id: message.user_id,
+      group_id: message.group_id,
+      created_at: message.created_at.strftime("%Y/%m/%d %H:%M:%S"),
+      updated_at: message.updated_at
+    }
   end
 
 end
