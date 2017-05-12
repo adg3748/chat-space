@@ -33,6 +33,6 @@
         .chat-footer
           = form_for(@message, url: group_messages_path(@group), method: :post) do |f|
             .send-message
-              = f.text_area :content, row: "2", placeholder: "type a message"
+              = f.text_area :content, placeholder: "type a message"
               %i{ class: "fa fa-picture-o", aria: { hidden: "true" }}
-              = submit_tag :Save, class: "submit", disable_with: "送信中..."
+              = submit_tag :Save, data: { disable_with: "送信中..." }
