@@ -1,27 +1,29 @@
 $(function() {
 
   function buildHTML(message) {
-    var html =  `<ul>
-                  <li>
-                    <div class = "user-message">
-                      <p class = "user-name">
-                        ${message.name}
-                      </p>
-                      <p class = "datetime">
-                        ${message.created_at}
-                      </p>
-                    </div>
-                    <p class = "message-body">
-                      ${message.content}
-                    </p>
-                  </li>
-                </ul>`
+    var html = `
+    <ul>
+      <li>
+        <div class='user-message'>
+          <p class='user-name'>
+            ${message.name}
+          </p>
+          <p class='datetime'>
+            ${message.created_at}
+          </p>
+        </div>
+        <p class='message-body'>
+          ${message.content}
+        </p>
+      </li>
+    </ul>
+  `
     return html;
   }
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault(); // 同期通信の停止
-    var $form = $(this); // formの属性を全て取得してグローバル変数に代入
+    var $form     = $(this); // formの属性を全て取得してグローバル変数に代入
     var textField = $('#message_content'); // テキストフィールド取得
     var message   = textField.val(); // テキストフィールドの値を取得
     var formdata  = new FormData($('#new_message').get(0)); // formのデータをハッシュで取得
