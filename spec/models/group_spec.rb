@@ -15,7 +15,7 @@ describe Group do
     end
 
     it "is invalid due to too_long name" do
-      group = build(:group, name: "000000000")
+      group = build(:group, name: "#{"0"*9}")
       group.valid?
       expect(group.errors[:name]).to include("1文字以上8文字以内で入力してください")
     end

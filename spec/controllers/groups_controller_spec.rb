@@ -4,7 +4,6 @@ describe GroupsController, type: :controller do
 
   let(:user) { create(:user) }
   let(:group) { create(:group) }
-  # createしたユーザーをuserに格納
 
   before do
     login_user user # letで格納したuserでログイン
