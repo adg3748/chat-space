@@ -8,6 +8,6 @@ class Message < ApplicationRecord
   belongs_to :group
 
   # scope (scopeは使用するオブジェクトに対応したModelに定義)
-  scope :sort_ASC, -> column { order("#{column} ASC") }
+  scope :sort_old, -> { order("created_at ASC") }
 
 end

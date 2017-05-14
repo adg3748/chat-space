@@ -10,6 +10,6 @@ class Group < ApplicationRecord
   has_many :messages
 
   # scope (scopeは使用するオブジェクトに対応したModelに定義)
-  scope :sort_DESC, -> column { order("#{column} DESC") }
+  scope :sort_new, -> { order("created_at DESC") }
 
 end

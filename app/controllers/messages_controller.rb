@@ -7,13 +7,13 @@ class MessagesController < ApplicationController
   def show
     @message = current_user.messages.new
     @group = Group.includes(:users, :messages).find(params[:id])
-    @messages = @group.messages.includes(:user, :group).sort_ASC("created_at")
+    @messages = @group.messages.includes(:user, :group).sort_old
   end
 
   def create
     @message = current_user.messages.new(message_params)
     @group = Group.includes(:users, :messages).find(params[:group_id])
-    @messages = @group.messages.includes(:user, :group).sort_ASC("created_at")
+    @messages = @group.messages.includes(:user, :group).sort_old
     if @message.save
       respond_to do |format|
         format.html { redirect_to message_url(@group) }
@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
   end
 
   def get_groups
-    @groups = current_user.groups.includes(:users, :messages).sort_DESC("created_at")
+    @groups = current_user.groups.includes(:users, :messages).sort_new
   end
 
   def message_json(message)
