@@ -1,53 +1,48 @@
 $(function() {
 
-  // buildHTML関数定義
   function buildHTML(message) {
-    var html =
-      `<ul>
-        <li>
-          <div class = "user-message">
-            <p class = "user-name">
-              ${message.name}
-            </p>
-            <p class = "datetime">
-              ${message.created_at}
-            </p>
-          </div>
-          <p class = "message-body">
-            ${message.content}
-          </p>
-        </li>
-      </ul>`
+    var html =  `<ul>
+                  <li>
+                    <div class = "user-message">
+                      <p class = "user-name">
+                        ${message.name}
+                      </p>
+                      <p class = "datetime">
+                        ${message.created_at}
+                      </p>
+                    </div>
+                    <p class = "message-body">
+                      ${message.content}
+                    </p>
+                  </li>
+                </ul>`
     return html;
   }
 
   $('#new_message').on('submit', function(e) {
-
-    e.preventDefault();
-    var textField = $('#message_content');
-    var message = textField.val();
-
-    $('input[type = "submit"]').removeAttr('data-disable-with');
+    e.preventDefault(); // 同期通信の停止
+    var $form = $(this); // formの属性を全て取得してグローバル変数に代入
+    var textField = $('#message_content'); // テキストフィールド取得
+    var message   = textField.val(); // テキストフィールドの値を取得
+    var formdata  = new FormData($('#new_message').get(0)); // formのデータをハッシュで取得
+    $('input[type="submit"]').removeAttr('data-disable-with'); // 連続投稿可能に
     $.ajax({
-      type: 'POST',
-      url: `/groups/${gon.group.id}/messages`,
-      data: {
-        message: {
-          content: message
-        }
-      },
-      dataType: 'json'
+      type:        'POST',
+      data:        formdata,
+      url:         $form.attr('action'), // formのaction属性に指定された属性値を取得
+      dataType:    'json',
+      processData: false, // クエリー文字列への自動変換停止
+      contentType: false // パラメーターがURIエスケイプされるのを防止
     })
-
     .done(function(data) {
-      var html = buildHTML(data);
-      $('.chat-body').append(html);
-      textField.val('');
+      // dataにはコントローラでrender :jsonの引数に指定したインスタンスが入る
+      var html = buildHTML(data); // dataを部分テンプレートに変換してhtmlに格納
+      $('.chat-body').append(html); // chat-body内最後の要素の後ろにhtmlを追加
+      textField.val(''); // テキストフィールドリセット
     })
-
     .fail(function() {
       alert('error');
     });
-
   });
+
 });
