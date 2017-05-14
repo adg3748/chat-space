@@ -25,6 +25,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to message_url(@group), notice: "グループ編集に成功しました。"
     else
+      flash.now[:alert] = "グループ編集に失敗しました。"
       render :edit
       # renderでは指定したactionが動いてるわけではないため、editフォームを表示する際に必要なインスタンス変数をget_users_editメソッドであらかじめ取得
     end
