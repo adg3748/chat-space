@@ -166,7 +166,7 @@ html, body {
             color: #333;
           }
         }
-        .submit {
+        input[type="submit"] {
           height: 50px;
           width: 100px;
           background-color: $light-blue;

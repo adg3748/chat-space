@@ -6,7 +6,6 @@ describe MessagesController do
   let(:group) { create(:group) }
   let(:message) {{ message: attributes_for(:message), user_id: user.id, group_id: group.id }}
 
-
   before do
     login_user user # letで格納したuserでログイン
   end
