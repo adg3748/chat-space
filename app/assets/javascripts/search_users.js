@@ -25,39 +25,36 @@ $(document).on('turbolinks:load', function() {
     ul.children().remove();
   }
 
+  // リストの挿入関数定義
+  function insertList(btn,link_text,link_class,part) {
+    var link = $(btn)
+    var li = link.parent();
+    var ul = li.parent();
+    link.text(link_text)
+    link.attr('class', link_class)
+    li.remove();
+    $(`.chat-group-form__${part} ul`).append(li)
+  }
+
   // 追加がクリックされたときの駆動
   $(document).on('click', '.add-btn', function(e) {
     e.preventDefault();
-    var link = $(this)
-    var li = link.parent();
-    var ul = li.parent();
-    link.text('削除')
-    link.attr('class', 'remove-btn')
-    li.remove();
-    $('.chat-group-form__member ul').append(li)
-    // input[type="hidden"]にカラム設定
+    insertList(this,'削除','remove-btn','member');
     $('li input[type="hidden"]').attr({ 'name': 'group[user_ids][]' })
   });
 
   // 削除がクリックされた時の駆動
   $(document).on('click', '.remove-btn', function(e) {
     e.preventDefault();
-    var link = $(this)
-    var li = link.parent();
-    var ul = li.parent();
-    link.text('追加')
-    link.attr('class', 'add-btn')
-    li.remove();
-    $('.chat-group-form__result ul').append(li)
-    // $('input[type="hidden"]')からカラム削除
-    $('input[type="hidden"]').removeAttr('name')
+    insertList(this,'追加','add-btn','result');
+    $('li input[type="hidden"]').removeAttr('name')
   });
 
   // インクリメンタルサーチ定義
   $('.chat-group-form__search input').on('keyup', function(e) {
     e.preventDefault();
     var textField = $('.chat-group-form__search input');
-    var input   = textField.val();
+    var input = textField.val();
     $.ajax({
       type:        'GET',
       data:        { keyword: input },
@@ -70,7 +67,7 @@ $(document).on('turbolinks:load', function() {
       // 検索結果一覧表示
       $.each(data, function(i,datum) {
         // キーワードが空でなければ
-        if( input !== "") {
+        if(input !== "") {
           var html = buildResults(datum);
           $('.chat-group-form__result ul').append(html);
         }
