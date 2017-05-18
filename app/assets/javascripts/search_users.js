@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
         <a href="#" class="add-btn">
           追加
         </a>
-        <input type="hidden" value="${user.id}" />
+        <input type="hidden" value="${user.id}">
       </li>
     `
     return html;
