@@ -43,7 +43,7 @@ $(function() {
       textField.val(''); // テキストフィールドリセット
     })
     .fail(function() {
-      console.log('error');
+      alert('不正な値です');
     });
   });
 
