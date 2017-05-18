@@ -56,7 +56,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, user_ids: [], groups_users_attributes: [:user_id, :group_id])
+    params.require(:group).permit(:name, user_ids: [])
   end
 
   def search_params
