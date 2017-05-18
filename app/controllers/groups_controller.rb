@@ -31,6 +31,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    @users = User.where('name LIKE(?)',"#{search_params[:keyword]}%").order('name ASC')
+    if @users.present?
+      respond_to do |format|
+        format.json { render json: @users }
+      end
+    end
+  end
+
   private
 
   def get_group
@@ -48,6 +57,10 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, user_ids: [])
+  end
+
+  def search_params
+    params.permit(:keyword)
   end
 
 end

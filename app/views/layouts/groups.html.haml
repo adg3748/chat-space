@@ -20,29 +20,34 @@
     .chat-group-form
       %h1
         = yield :form_title
-      = form_for(@group, html: { id: "#{yield :form_id}", class: "#{yield :form_class}", accept: { charset: "UTF-8" }, action: groups_path, method: "#{yield :form_method}" }) do |f|
-        .chat-group-form__field
-          .chat-group-form__field--left
-            = f.label :name, :グループ名, class: "chat-group-form__label"
-          .chat-group-form__field--right
-            = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください(8文字以内)", autofocus: "autofocus"
-        .chat-group-form__field
-          .chat-group-form__field--left
-            = f.label :group, :チャットメンバーを追加, class: "chat-group-form__label"
-          .chat-group-form__field--right
-            .chat-group-form__search
-              = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
-                = b.label { b.check_box + b.text }
-        .chat-group-form__field
-          .chat-group-form__field--left
-            = f.label :group, :チャットメンバー, class: "chat-group-form__label"
-          .chat-group-form__field--right
-            #chat-group-users
-              #chat-group-user-22.chat-group-user
-                %p.chat-group-user__name
-                  - @users.each do |user|
-                    = user.name
-        .chat-group-form__field
-          .chat-group-form__field--left
-          .chat-group-form__field--right
-            = submit_tag :Save, class: "chat-group-form__action-btn", data: { disable_with: "送信中..." }
+      = form_for(@group, html: { id: "#{yield :form_id}", class: "#{yield :form_class}", accept: { charset: "UTF-8" }, action: "#{yield :form_path}", method: "#{yield :form_method}" }) do |f|
+        %ul
+          %li.chat-group-form__field
+            .chat-group-form__field--left
+              = f.label :name, :グループ名, class: "chat-group-form__label"
+            .chat-group-form__field--right
+              = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", autofocus: "autofocus"
+          %li.chat-group-form__field
+            .chat-group-form__field--left
+              = f.label :group, :チャットメンバーを追加, class: "chat-group-form__label"
+            .chat-group-form__field--right
+              .chat-group-form__search
+                %input.chat-group-form__input{ type: 'text', name: 'keyword', placeholder: '追加したいユーザー名を入力してください' }
+          %li.chat-group-form__field
+            .chat-group-form__field--left
+            .chat-group-form__field--right
+              .chat-group-form__result
+                %ul
+          %li.chat-group-form__field
+            .chat-group-form__field--left
+              = f.label :group, :チャットメンバー, class: "chat-group-form__label"
+            .chat-group-form__field--right
+              .chat-group-form__member
+                %ul
+                  %li
+                    - @users.each do |user|
+                      = user.name
+          %li.chat-group-form__field
+            .chat-group-form__field--left
+            .chat-group-form__field--right
+              = submit_tag :Save, class: "chat-group-form__action-btn", data: { disable_with: "送信中..." }
