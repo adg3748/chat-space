@@ -37,7 +37,7 @@ $(function() {
       contentType: false // パラメーターがURIエスケイプされるのを防止
     })
     .done(function(data) {
-      // dataにはコントローラでrender :jsonの引数に指定したインスタンスが入る
+      // dataにはコントローラでrender :jsonの引数に指定した変数が入る
       var html = buildHTML(data); // dataを部分テンプレートに変換してhtmlに格納
       $('.chat-body').append(html); // chat-body内最後の要素の後ろにhtmlを追加
       textField.val(''); // テキストフィールドリセット
