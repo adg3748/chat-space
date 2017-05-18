@@ -29,7 +29,6 @@ $(document).on('turbolinks:load', function() {
   function insertList(btn,link_text,link_class,part) {
     var link = $(btn)
     var li = link.parent();
-    var ul = li.parent();
     link.text(link_text)
     link.attr('class', link_class)
     li.remove();
