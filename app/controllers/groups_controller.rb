@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
   end
 
   def search
-    @users = User.where('name LIKE(?)',"%#{search_params[:keyword]}%").order('name ASC')
+    @users = User.where('name LIKE(?)',"#{search_params[:keyword]}%").order('name ASC')
     if @users.present?
       respond_to do |format|
         format.json { render json: @users }
