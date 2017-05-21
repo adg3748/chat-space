@@ -8,3 +8,5 @@
         = time.strftime("%Y/%m/%d %H:%M:%S")
     %p.message-body
       = message.content
+      %br
+      = image_tag message.image.url unless message.image.url.nil?

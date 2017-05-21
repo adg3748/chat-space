@@ -10,4 +10,7 @@ class Message < ApplicationRecord
   # scope (scopeは使用するオブジェクトに対応したModelに定義)
   scope :sort_old, -> { order("created_at ASC") }
 
+  # carrierwave
+  mount_uploader :image, ImageUploader
+
 end
