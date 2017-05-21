@@ -164,6 +164,9 @@ html, body {
             width: 40px;
             box-sizing: border-box;
             color: #333;
+            &:before{
+              cursor: pointer;
+            }
           }
         }
         input[type="submit"] {
