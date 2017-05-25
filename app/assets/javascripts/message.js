@@ -13,7 +13,8 @@ $(function() {
           </p>
         </div>
         <p class='message-body'>
-          ${message.content}
+          ${message.content}<br />
+          <img src='${message.image}' class='msg-img'>
         </p>
       </li>
     </ul>

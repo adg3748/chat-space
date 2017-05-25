@@ -6,7 +6,7 @@
       %p.datetime
         - time = message.created_at
         = time.strftime("%Y/%m/%d %H:%M:%S")
-    %p.message-body
+    .message-body
       = message.content
       %br
-      = image_tag message.image.url unless message.image.url.nil?
+      = image_tag message.image.url, class: "msg-img" unless message.image.url.nil?
