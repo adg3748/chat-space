@@ -1,4 +1,4 @@
-- provide(:title, "#{@group.name} ")
+- provide(:title, "#{@group.name}")
 .chat-main
   .chat-header
     .group-user
@@ -15,13 +15,13 @@
         = link_to edit_group_path(@group) do
           Edit
   .chat-body
-    = render partial: "message", collection: @messages
+    = render partial: 'message', collection: @messages
     .chat-footer
       = form_for(@message, url: group_messages_path(@group), method: :post) do |f|
         .send-message
-          = f.text_area :content, placeholder: "type a message"
+          = f.text_area :content, placeholder: 'type a message'
           = f.label :image do
             %i.fa.fa-image
           = f.file_field :image, hidden: true
-          / area-hidden="true"でスクリーンリーダーの読み上げを回避
-          = submit_tag :Save, data: { disable_with: "送信中..." }
+          / area-hidden='true'でスクリーンリーダーの読み上げを回避
+          = submit_tag :Save, data: { disable_with: '送信中...' }
