@@ -12,6 +12,8 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'carrierwave'
+gem 'fog'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'

@@ -5,6 +5,8 @@
         = message.user.name
       %p.datetime
         - time = message.created_at
-        = time.strftime("%Y/%m/%d %H:%M:%S")
-    %p.message-body
+        = time.strftime('%Y/%m/%d %H:%M:%S')
+    .message-body
       = message.content
+      %br
+      = image_tag message.image.url, class: 'msg-img' unless message.image.url.nil?

@@ -129,10 +129,14 @@ html, body {
               font-size: 12px;
             }
           }
-          .massage-body {
+          .message-body {
             padding: 10px 0 40px;
             font-size: 14px;
             color: #434a54;
+            .msg-img {
+              max-width: 640px;
+              height: auto;
+            }
           }
         }
       }
@@ -164,6 +168,9 @@ html, body {
             width: 40px;
             box-sizing: border-box;
             color: #333;
+            &:before{
+              cursor: pointer;
+            }
           }
         }
         input[type="submit"] {

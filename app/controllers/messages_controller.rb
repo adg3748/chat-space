@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content).merge(group_id: params[:group_id])
+    params.require(:message).permit(:content, :image).merge(group_id: params[:group_id])
   end
 
   def get_groups
@@ -36,8 +36,6 @@ class MessagesController < ApplicationController
   end
 
   def message_json(message)
-    { id: message.id, name: message.user.name, content: message.content, user_id: message.user_id, group_id: message.group_id, created_at: message.created_at.strftime("%Y/%m/%d %H:%M:%S"), updated_at: message.updated_at
-    }
+    { id: message.id, name: message.user.name, content: message.content, image: message.image.to_s, user_id: message.user_id, group_id: message.group_id, created_at: message.created_at.strftime("%Y/%m/%d %H:%M:%S"), updated_at: message.updated_at.strftime("%Y/%m/%d %H:%M:%S") }
   end
-
 end
