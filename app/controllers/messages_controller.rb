@@ -8,6 +8,17 @@ class MessagesController < ApplicationController
     @message = current_user.messages.new
     @group = Group.includes(:users, :messages).find(params[:id])
     @messages = @group.messages.includes(:user, :group).sort_old
+    respond_to do |format|
+      format.html # 特に駆動なし
+      format.json {
+        @new_messages = @messages.where('id > ?', (params[:newest_msg_id] ||= 0))
+        @messages_json = []
+        @new_messages.each do |new_message|
+          @messages_json << message_json(new_message)
+        end
+        render json: @messages_json
+      }
+    end
   end
 
   def create
