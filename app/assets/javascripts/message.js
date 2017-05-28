@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function() {
         $.ajax({
           url:      location.href,
           type:     'GET',
-          data:     { message: { id: message_id } },
+          data:     { newest_msg_id: message_id },
           dataType: 'json'
         })
         .done(function(data) {
