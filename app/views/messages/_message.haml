@@ -1,11 +1,10 @@
 %ul
-  %li
+  %li{ class: 'message_li', data: { id: "#{message.id}" }}
     .user-message
       %p.user-name
         = message.user.name
       %p.datetime
-        - time = message.created_at
-        = time.strftime('%Y/%m/%d %H:%M:%S')
+        = message.created_at.strftime('%Y/%m/%d %H:%M:%S')
     .message-body
       = message.content
       %br
